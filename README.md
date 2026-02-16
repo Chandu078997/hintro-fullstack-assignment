@@ -25,13 +25,13 @@ It allows users to create boards, lists, tasks, assign users, and view updates i
 ![Dashboard](dashboard.png)
 
 **Board View**  
-![Board](screenshots/Screenshot-from-2026-02-16-11-22-52.png)
+![Board](board.png)
 
 **Login Page**  
-![Login](screenshots/Screenshot-from-2026-02-16-11-22-57.png)
+![Login](login.png)
 
 **Register Page**  
-![Register](screenshots/Screenshot-from-2026-02-16-11-23-11.png)
+![Register](register.png)
 
 ---
 
