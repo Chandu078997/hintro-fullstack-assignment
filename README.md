@@ -1,6 +1,6 @@
 # TaskSync - Real-Time Task Collaboration Platform
 
-![Dashboard](screenshots/Screenshot-from-2026-02-16-11-22-46.png)
+![Dashboard](https://github.com/Chandu078997/hintro-fullstack-assignment/blob/main/Screenshot%20from%202026-02-16%2011-22-46.png)
 
 TaskSync is a lightweight Trello/Notion-style real-time task collaboration platform.  
 It allows users to create boards, lists, tasks, assign users, and view updates in real-time.
