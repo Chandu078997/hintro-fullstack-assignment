@@ -1,65 +1,91 @@
 # TaskSync - Real-Time Task Collaboration Platform
 
-TaskSync is a lightweight **Trello/Notion-like real-time task collaboration platform** built as a Full Stack Internship assignment for Hintro.  
-It allows users to create boards, lists, tasks, assign members, and see real-time updates.
+![Dashboard](screenshots/Screenshot-from-2026-02-16-11-22-46.png)
+
+TaskSync is a lightweight Trello/Notion-style real-time task collaboration platform.  
+It allows users to create boards, lists, tasks, assign users, and view updates in real-time.
 
 ---
 
-## 📝 Features
+## 🛠 Features
 
-- User authentication (signup/login)  
-- Create Boards with multiple Lists  
-- Add, update, and delete Tasks inside lists  
-- Drag and drop tasks across lists (planned for future)  
-- Assign users to tasks  
-- Real-time updates across multiple users (via WebSocket)  
-- Activity history tracking  
-- Pagination and search functionality  
+- **User Authentication:** Signup and login functionality.
+- **Boards & Lists:** Create multiple boards with lists (To Do, In Progress, Done).
+- **Task Management:** Add, update, delete tasks inside lists.
+- **Assign Users:** Assign tasks to specific users (future extension possible).
+- **Real-Time Updates:** Tasks updates reflect immediately across users.
+- **Activity Tracking:** Track task history and changes.
+- **Clean UI:** Interactive and responsive interface.
 
 ---
 
-## 💻 Tech Stack
+## 📁 Screenshots
 
-- **Backend:** Java, Spring Boot, Spring Data JPA  
+**Dashboard**  
+![Dashboard](screenshots/Screenshot-from-2026-02-16-11-22-46.png)
+
+**Board View**  
+![Board](screenshots/Screenshot-from-2026-02-16-11-22-52.png)
+
+**Login Page**  
+![Login](screenshots/Screenshot-from-2026-02-16-11-22-57.png)
+
+**Register Page**  
+![Register](screenshots/Screenshot-from-2026-02-16-11-23-11.png)
+
+---
+
+## 🖥 Technical Stack
+
+- **Frontend:** Thymeleaf templates (HTML/CSS) within Spring Boot  
+- **Backend:** Java Spring Boot REST APIs  
 - **Database:** MySQL  
-- **Frontend:** Thymeleaf templates (no React)  
-- **Real-time communication:** WebSocket (SimpMessagingTemplate)  
-- **Build:** Maven  
-- **Version Control:** Git + GitHub  
+- **Real-Time Communication:** Spring WebSockets (STOMP)  
+- **Build Tool:** Maven  
+- **Version Control:** Git & GitHub  
 
 ---
 
-## 🛠 Database Schema
+## 🗂 Database Schema
 
-**Boards Table**  
+**Tables:**  
 
-| Field | Type | Key |
-|-------|------|-----|
-| id    | BIGINT | PK |
-| name  | VARCHAR(255) |  |
+**boards**  
+| id | name |  
 
-**Task Lists Table**  
+**task_lists**  
+| id | name | board_id |  
 
-| Field    | Type | Key |
-|----------|------|-----|
-| id       | BIGINT | PK |
-| name     | VARCHAR(255) | |
-| board_id | BIGINT | FK |
+**tasks**  
+| id | title | task_list_id |  
 
-**Tasks Table**  
+---
 
-| Field        | Type | Key |
-|--------------|------|-----|
-| id           | BIGINT | PK |
-| title        | VARCHAR(255) | |
-| task_list_id | BIGINT | FK |
+## 🔗 API Endpoints
+
+- **Boards**
+  - `GET /dashboard` - Show all boards
+  - `POST /board/create` - Create new board
+  - `POST /board/delete/{boardId}` - Delete board
+
+- **Lists**
+  - `POST /board/{boardId}/list/create` - Create list in a board
+  - `POST /board/{boardId}/list/delete/{listId}` - Delete list
+
+- **Tasks**
+  - `POST /board/{boardId}/task/create` - Create task
+  - `POST /board/{boardId}/task/delete/{taskId}` - Delete task
+  - `POST /board/{boardId}/task/edit/{taskId}` - Edit task title
+
+- **Auth**
+  - `POST /register` - User registration
+  - `POST /login` - User login
 
 ---
 
 ## 🚀 Setup Instructions
 
 1. Clone the repository:
-
-```bash
-git clone https://github.com/Chandu078997/hintro-fullstack-assignment.git
-cd hintro-fullstack-assignment
+   ```bash
+   git clone https://github.com/Chandu078997/hintro-fullstack-assignment.git
+   cd hintro-fullstack-assignment
