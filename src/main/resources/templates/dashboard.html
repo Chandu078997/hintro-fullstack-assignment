@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .board-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .board-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 10px 0;
+            background: #f4f6ff;
+            border-radius: 8px;
+        }
+
+        .board-item a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .board-item a:hover {
+            color: #667eea;
+        }
+
+        .delete-btn {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .create-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        input {
+            padding: 8px;
+            width: 70%;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            background-color: #667eea;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5563c1;
+        }
+
+        .logout {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .logout:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Project Dashboard</h2>
+
+    <!-- Board List -->
+    <ul class="board-list">
+        <li class="board-item" th:each="board : ${boards}">
+            <a th:href="@{'/board/' + ${board.id}}"
+               th:text="${board.name}"></a>
+
+            <form th:action="@{'/board/delete/' + ${board.id}}"
+                  method="post"
+                  style="margin:0;">
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+        </li>
+    </ul>
+
+    <!-- Create New Board -->
+    <div class="create-section">
+        <h3>Create New Board</h3>
+
+        <form action="/board/create" method="post">
+            <input type="text" name="name" placeholder="Board Name" required>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+
+    <a href="/logout" class="logout">Logout</a>
+
+</div>
+
+</body>
+</html>
