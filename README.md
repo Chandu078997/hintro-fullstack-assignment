@@ -22,7 +22,7 @@ It allows users to create boards, lists, tasks, assign users, and view updates i
 ## 📁 Screenshots
 
 **Dashboard**  
-![Dashboard](screenshots/Screenshot-from-2026-02-16-11-22-46.png)
+![Dashboard](Screenshot-from-2026-02-16-11-22-46.png)
 
 **Board View**  
 ![Board](screenshots/Screenshot-from-2026-02-16-11-22-52.png)
